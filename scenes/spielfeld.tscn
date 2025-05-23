@@ -1,0 +1,333 @@
+[gd_scene load_steps=10 format=3 uid="uid://cms47gk8f03aa"]
+
+[ext_resource type="PackedScene" uid="uid://d1xq2i6jehhp7" path="res://scenes/ball.tscn" id="1_f0xrr"]
+[ext_resource type="Script" path="res://scripts/spielfeld.gd" id="1_gquah"]
+[ext_resource type="PackedScene" uid="uid://ce0yyvr4esl7" path="res://scenes/wall.tscn" id="3_7dppe"]
+[ext_resource type="PackedScene" uid="uid://bv8i1t1y0p5ny" path="res://scenes/bar.tscn" id="3_eim4g"]
+[ext_resource type="PackedScene" uid="uid://lsew74o4p3jl" path="res://scenes/punkte_bereich.tscn" id="4_viq8h"]
+[ext_resource type="Texture2D" uid="uid://bb0h0piry0y8m" path="res://sprites/background.png" id="5_cvnax"]
+[ext_resource type="AudioStream" uid="uid://ccrxdhjd3t5hq" path="res://sfx/Lose3.wav" id="6_67v62"]
+[ext_resource type="PackedScene" uid="uid://cm15syfspn2sd" path="res://scenes/brick.tscn" id="7_8f4fx"]
+[ext_resource type="AudioStream" uid="uid://bh6wujoa58koq" path="res://sfx/Elka2.mp3" id="7_r36qt"]
+
+[node name="Spielfeld" type="Node2D"]
+script = ExtResource("1_gquah")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(232, 205)
+scale = Vector2(1.25, 0.9375)
+texture = ExtResource("5_cvnax")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(312, 247)
+scale = Vector2(1.25, 0.9375)
+texture = ExtResource("5_cvnax")
+
+[node name="Background3" type="Sprite2D" parent="."]
+position = Vector2(556, 205)
+scale = Vector2(1.25, 0.9375)
+texture = ExtResource("5_cvnax")
+
+[node name="Background4" type="Sprite2D" parent="."]
+position = Vector2(556, 225)
+scale = Vector2(1.25, 0.9375)
+texture = ExtResource("5_cvnax")
+
+[node name="Background5" type="Sprite2D" parent="."]
+position = Vector2(556, 265)
+scale = Vector2(1.25, 0.9375)
+texture = ExtResource("5_cvnax")
+
+[node name="Background6" type="Sprite2D" parent="."]
+position = Vector2(556, 306)
+scale = Vector2(1.25, 0.9375)
+texture = ExtResource("5_cvnax")
+
+[node name="Elemente" type="Node2D" parent="."]
+
+[node name="Bar" parent="Elemente" instance=ExtResource("3_eim4g")]
+position = Vector2(303, 465)
+
+[node name="Ball" parent="Elemente" instance=ExtResource("1_f0xrr")]
+position = Vector2(302, 437)
+
+[node name="Wall2" parent="Elemente" instance=ExtResource("3_7dppe")]
+position = Vector2(-4, 2)
+
+[node name="Wall4" parent="Elemente" instance=ExtResource("3_7dppe")]
+position = Vector2(671, 1)
+
+[node name="Punkte_Bereich2" parent="Elemente" instance=ExtResource("4_viq8h")]
+position = Vector2(1, 485)
+scale = Vector2(1.003, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Elemente"]
+
+[node name="Control" type="Control" parent="Elemente/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Elemente/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 52.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.855426, 0.228291, 0.448707, 1)
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="Label2" type="Label" parent="Elemente/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 225.0
+offset_right = 489.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0.855426, 0.228291, 0.448707, 1)
+theme_override_font_sizes/font_size = 30
+text = "PRESS SPACE TO START"
+
+[node name="Label3" type="Label" parent="Elemente/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 214.0
+offset_right = 536.0
+offset_bottom = 301.0
+theme_override_colors/font_color = Color(0.855426, 0.228291, 0.448707, 1)
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="Wall5" parent="Elemente" instance=ExtResource("3_7dppe")]
+position = Vector2(629, -61)
+scale = Vector2(22.48, 0.121558)
+
+[node name="Bricks" type="Node2D" parent="Elemente"]
+
+[node name="Brick" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(113, 131)
+
+[node name="Brick2" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(149, 131)
+
+[node name="Brick3" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(185, 131)
+
+[node name="Brick4" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(221, 131)
+
+[node name="Brick5" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(257, 131)
+
+[node name="Brick6" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(293, 131)
+
+[node name="Brick7" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(329, 131)
+
+[node name="Brick8" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(365, 131)
+
+[node name="Brick9" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(401, 131)
+
+[node name="Brick10" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(437, 131)
+
+[node name="Brick11" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(473, 131)
+
+[node name="Brick12" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(509, 131)
+
+[node name="Brick13" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(113, 151)
+
+[node name="Brick14" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(149, 151)
+
+[node name="Brick15" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(185, 151)
+
+[node name="Brick16" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(221, 151)
+
+[node name="Brick17" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(257, 151)
+
+[node name="Brick18" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(293, 151)
+
+[node name="Brick19" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(329, 151)
+
+[node name="Brick20" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(365, 151)
+
+[node name="Brick21" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(401, 151)
+
+[node name="Brick22" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(437, 151)
+
+[node name="Brick23" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(473, 151)
+
+[node name="Brick24" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(509, 151)
+
+[node name="Brick25" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(113, 171)
+
+[node name="Brick26" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(149, 171)
+
+[node name="Brick27" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(185, 171)
+
+[node name="Brick28" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(221, 171)
+
+[node name="Brick29" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(257, 171)
+
+[node name="Brick30" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(293, 171)
+
+[node name="Brick31" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(329, 171)
+
+[node name="Brick32" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(365, 171)
+
+[node name="Brick33" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(401, 171)
+
+[node name="Brick34" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(437, 171)
+
+[node name="Brick35" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(473, 171)
+
+[node name="Brick36" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(509, 171)
+
+[node name="Brick37" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(113, 191)
+
+[node name="Brick38" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(149, 191)
+
+[node name="Brick39" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(185, 191)
+
+[node name="Brick40" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(221, 191)
+
+[node name="Brick41" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(257, 191)
+
+[node name="Brick42" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(293, 191)
+
+[node name="Brick43" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(329, 191)
+
+[node name="Brick44" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(365, 191)
+
+[node name="Brick45" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(401, 191)
+
+[node name="Brick46" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(437, 191)
+
+[node name="Brick47" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(473, 191)
+
+[node name="Brick48" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(509, 191)
+
+[node name="Brick49" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(113, 212)
+
+[node name="Brick50" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(149, 212)
+
+[node name="Brick51" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(185, 212)
+
+[node name="Brick52" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(221, 212)
+
+[node name="Brick53" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(257, 212)
+
+[node name="Brick54" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(293, 212)
+
+[node name="Brick55" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(329, 212)
+
+[node name="Brick56" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(365, 212)
+
+[node name="Brick57" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(401, 212)
+
+[node name="Brick58" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(437, 212)
+
+[node name="Brick59" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(473, 212)
+
+[node name="Brick60" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(509, 212)
+
+[node name="Brick61" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(113, 232)
+
+[node name="Brick62" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(149, 232)
+
+[node name="Brick63" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(185, 232)
+
+[node name="Brick64" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(221, 232)
+
+[node name="Brick65" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(257, 232)
+
+[node name="Brick66" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(293, 232)
+
+[node name="Brick67" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(329, 232)
+
+[node name="Brick68" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(365, 232)
+
+[node name="Brick69" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(401, 232)
+
+[node name="Brick70" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(437, 232)
+
+[node name="Brick71" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(473, 232)
+
+[node name="Brick72" parent="Elemente/Bricks" instance=ExtResource("7_8f4fx")]
+position = Vector2(509, 232)
+
+[node name="Items" type="Node2D" parent="Elemente"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_67v62")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_r36qt")
+parameters/looping = true
+
+[connection signal="body_entered" from="Elemente/Ball" to="." method="_on_ball_body_entered"]
+[connection signal="body_entered" from="Elemente/Punkte_Bereich2" to="." method="_on_punkte_bereich_2_body_entered"]

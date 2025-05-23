@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv8i1t1y0p5ny"]
+
+[ext_resource type="Script" path="res://scripts/move_bar.gd" id="2_mowey"]
+[ext_resource type="Texture2D" uid="uid://cblakyoa08aow" path="res://sprites/pedal.png" id="2_op68u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krmu4"]
+size = Vector2(53.603, 74.3224)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(79, 72)
+script = ExtResource("2_mowey")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(1.81054, 1.1582)
+texture = ExtResource("2_op68u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(2.16406, 0.242188)
+shape = SubResource("RectangleShape2D_krmu4")
